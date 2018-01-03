@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MenuTopoComponent } from './templates/menu-topo/menu-topo.component';
 import { NovoUsuarioComponent } from './usuarios/novo-usuario/novo-usuario.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { NovoUsuarioComponent } from './usuarios/novo-usuario/novo-usuario.compo
     NovoUsuarioComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
