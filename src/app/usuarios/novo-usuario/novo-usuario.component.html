@@ -1,10 +1,18 @@
 <h1 class="titulo">Cadastro de Usuário</h1>
 <br/>
-<form action="post">
+
+<div *ngIf="formNovoUsuario.invalid && enviado" class="alert alert-danger">
+    <p *ngIf="formNovoUsuario.controls.nome.invalid">O nome não pode ficar em branco.</p>
+    <p *ngIf="formNovoUsuario.controls.sobrenome.invalid">O sobrenome não pode ficar em branco.</p>
+    <p *ngIf="formNovoUsuario.controls.email.invalid">O email não pode ficar em branco e deve conter um formato válido, <b>exemplo@srtecnologia.com</b></p>
+    <p *ngIf="formNovoUsuario.controls.senha.invalid">A senha não pode ficar em branco e ter menos de 5 caracteres.</p>
+</div>
+
+<form method="POST" (ngSubmit)="enviarFormulario()" [formGroup]="formNovoUsuario">
   <div class="panel panel-default">
     <div class="panel-heading">Cadastro</div>
     <div class="panel-body">
-      
+
       <!-- Dados pessoais-->
       <fieldset>
         <legend>Dados Pessoais</legend>
@@ -12,25 +20,29 @@
           <div class="form-group">
             <div class="col-md-4">
               <label for="nome" class="control-label">Nome</label>
-              <input type="text" id="nome" class="form-control">
+              <input (ngModel)="usuario.nome" formControlName="nome"
+               type="text" id="nome" class="form-control">
             </div>
             <div class="col-md-4">
               <label for="sobrenome" class="control-label">Sobrenome</label>
-              <input type="text" id="sobrenome" class="form-control">
+              <input (ngModel)="usuario.sobrenome" formControlName="sobrenome"
+               name="sobrenome" type="text" id="sobrenome" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="telefone" class="control-label">Telefone</label>
-              <input type="text" id="telefone" class="form-control">
+              <input (ngModel)="usuario.telefone" formControlName="telefone"
+              type="text" id="telefone" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="celular" class="control-label">Celular</label>
-              <input type="text" id="celular" class="form-control">
+              <input (ngModel)="usuario.celular" formControlName="celular"
+              type="text" id="celular" class="form-control">
             </div>  
           </div>
         </div>
       </fieldset>
       <!-- ./ Dados pessoais-->
-      
+
       <br/>
 
       <!-- Dados de acesso -->
@@ -40,15 +52,17 @@
           <div class="form-group">
             <div class="col-md-4">
               <label for="email" class="control-label">Email de acesso</label>
-              <input type="text" id="email" class="form-control">
+              <input (ngModel)="usuario.email" formControlName="email"
+              type="text" id="email" class="form-control">
             </div>
             <div class="col-md-4">
               <label for="senha" class="control-label">Senha</label>
-              <input type="text" id="senha" class="form-control">
+              <input (ngModel)="usuario.senha" formControlName="senha"
+              type="password" id="senha" class="form-control">
             </div>
             <div class="col-md-4">
               <label for="categoria">Categoria</label>
-              <select id="categoria" class="form-control">
+              <select (ngModel)="usuario.categoria" formControlName="categoria" id="categoria" class="form-control">
                 <option value="0">Desenvolvimento</option>
                 <option value="1">Infraestrutura</option>
               </select>
@@ -57,8 +71,9 @@
         </div>
       </fieldset>
       <!-- ./ Dados de acesso -->
+
     </div>
   </div>
-  <button class="btn btn-primary">Cadastrar</button>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
   <button class="btn btn-warning">Cancelar</button>
 </form>
