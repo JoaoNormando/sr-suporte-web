@@ -5,7 +5,7 @@
 <div *ngIf="formNovaCategoria.invalid && enviado" class="alert alert-danger">
   <p *ngIf="formNovaCategoria.controls.descricao.invalid">A descrição não pode ficar em branco.</p>
 </div>
-
+{{categoria.descricao}}
 <form method="post" (ngSubmit)="enviarFormulario()" [formGroup]="formNovaCategoria">
   <div class="panel panel-default">
     <div class="panel-heading">Cadastro</div>
@@ -15,7 +15,7 @@
         <div class="form-group">
           <div class="col-md-12">
             <label for="descricao">Descrição</label>
-            <input (ngModel)="categoria.descricao" formControlName="descricao"
+            <input [(ngModel)]="categoria.descricao" formControlName="descricao"
             type="text" id="descricao" class="form-control">
           </div>
         </div>

@@ -10,13 +10,16 @@ import { NovoUsuarioComponent } from './usuarios/novo-usuario/novo-usuario.compo
 import { AppRoutingModule } from './/app-routing.module';
 import { UsuarioService } from './usuarios/shared/usuario-service';
 import { NovaCategoriaComponent } from './categorias/nova-categoria/nova-categoria.component';
+import { CategoriaService } from './categorias/shared/categoria-service';
+import { ListaCategoriaComponent } from './categorias/lista-categoria/lista-categoria.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuTopoComponent,
     NovoUsuarioComponent,
-    NovaCategoriaComponent
+    NovaCategoriaComponent,
+    ListaCategoriaComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { NovaCategoriaComponent } from './categorias/nova-categoria/nova-categor
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService, CategoriaService],
   bootstrap: [AppComponent]
 })
 
