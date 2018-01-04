@@ -1,8 +1,62 @@
+<h1 class="titulo">Cadastro de Usuário</h1>
+<br/>
 <form action="post">
   <div class="panel panel-default">
     <div class="panel-heading">Cadastro</div>
     <div class="panel-body">
+      
+      <!-- Dados pessoais-->
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-4">
+              <label for="nome" class="control-label">Nome</label>
+              <input type="text" id="nome" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <label for="sobrenome" class="control-label">Sobrenome</label>
+              <input type="text" id="sobrenome" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label for="telefone" class="control-label">Telefone</label>
+              <input type="text" id="telefone" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label for="celular" class="control-label">Celular</label>
+              <input type="text" id="celular" class="form-control">
+            </div>  
+          </div>
+        </div>
+      </fieldset>
+      <!-- ./ Dados pessoais-->
+      
+      <br/>
 
+      <!-- Dados de acesso -->
+      <fieldset>
+        <legend>Dados de Acesso</legend>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-4">
+              <label for="email" class="control-label">Email de acesso</label>
+              <input type="text" id="email" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <label for="senha" class="control-label">Senha</label>
+              <input type="text" id="senha" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <label for="categoria">Categoria</label>
+              <select id="categoria" class="form-control">
+                <option value="0">Desenvolvimento</option>
+                <option value="1">Infraestrutura</option>
+              </select>
+            </div>  
+          </div>
+        </div>
+      </fieldset>
+      <!-- ./ Dados de acesso -->
     </div>
   </div>
   <button class="btn btn-primary">Cadastrar</button>
