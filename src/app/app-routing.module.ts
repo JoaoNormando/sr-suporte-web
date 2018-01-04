@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { NovoUsuarioComponent } from './usuarios/novo-usuario/novo-usuario.component';
+import { NovaCategoriaComponent } from './categorias/nova-categoria/nova-categoria.component';
 
 const routes : Routes = [
   {
     path: 'novo-usuario',
     component: NovoUsuarioComponent
+  },
+  {
+    path: 'nova-categoria',
+    component: NovaCategoriaComponent
   }
 ];
 

@@ -1,3 +1,28 @@
-<p>
-  nova-categoria works!
-</p>
+<h1 class="titulo">Cadastro de categoria</h1>
+
+<br/>
+
+<div *ngIf="formNovaCategoria.invalid && enviado" class="alert alert-danger">
+  <p *ngIf="formNovaCategoria.controls.descricao.invalid">A descrição não pode ficar em branco.</p>
+</div>
+
+<form method="post" (ngSubmit)="enviarFormulario()" [formGroup]="formNovaCategoria">
+  <div class="panel panel-default">
+    <div class="panel-heading">Cadastro</div>
+    <div class="panel-body">
+  
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-12">
+            <label for="descricao">Descrição</label>
+            <input (ngModel)="categoria.descricao" formControlName="descricao"
+            type="text" id="descricao" class="form-control">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+  <button class="btn btn-warning">Cancelar</button>
+</form>
