@@ -5,7 +5,7 @@
 <div *ngIf="formNovaCategoria.invalid && enviado" class="alert alert-danger">
   <p *ngIf="formNovaCategoria.controls.descricao.invalid">A descrição não pode ficar em branco.</p>
 </div>
-{{categoria.descricao}}
+
 <form method="post" (ngSubmit)="enviarFormulario()" [formGroup]="formNovaCategoria">
   <div class="panel panel-default">
     <div class="panel-heading">Cadastro</div>

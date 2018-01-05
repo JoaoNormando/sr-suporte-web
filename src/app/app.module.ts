@@ -12,6 +12,7 @@ import { UsuarioService } from './usuarios/shared/usuario-service';
 import { NovaCategoriaComponent } from './categorias/nova-categoria/nova-categoria.component';
 import { CategoriaService } from './categorias/shared/categoria-service';
 import { ListaCategoriaComponent } from './categorias/lista-categoria/lista-categoria.component';
+import { ListaUsuarioComponent } from './usuarios/lista-usuario/lista-usuario.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ListaCategoriaComponent } from './categorias/lista-categoria/lista-cate
     MenuTopoComponent,
     NovoUsuarioComponent,
     NovaCategoriaComponent,
-    ListaCategoriaComponent
+    ListaCategoriaComponent,
+    ListaUsuarioComponent
   ],
   imports: [
     BrowserModule,

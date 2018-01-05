@@ -6,6 +6,7 @@
     <p *ngIf="formNovoUsuario.controls.sobrenome.invalid">O sobrenome não pode ficar em branco.</p>
     <p *ngIf="formNovoUsuario.controls.email.invalid">O email não pode ficar em branco e deve conter um formato válido, <b>exemplo@srtecnologia.com</b></p>
     <p *ngIf="formNovoUsuario.controls.senha.invalid">A senha não pode ficar em branco e ter menos de 5 caracteres.</p>
+    <p *ngIf="formNovoUsuario.controls.categoria.invalid">A categoria não pode ficar em branco.</p>
 </div>
 
 <form method="POST" (ngSubmit)="enviarFormulario()" [formGroup]="formNovoUsuario">
@@ -20,22 +21,22 @@
           <div class="form-group">
             <div class="col-md-4">
               <label for="nome" class="control-label">Nome</label>
-              <input (ngModel)="usuario.nome" formControlName="nome"
+              <input [(ngModel)]="usuario.nome" formControlName="nome"
                type="text" id="nome" class="form-control">
             </div>
             <div class="col-md-4">
               <label for="sobrenome" class="control-label">Sobrenome</label>
-              <input (ngModel)="usuario.sobrenome" formControlName="sobrenome"
+              <input [(ngModel)]="usuario.sobrenome" formControlName="sobrenome"
                name="sobrenome" type="text" id="sobrenome" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="telefone" class="control-label">Telefone</label>
-              <input (ngModel)="usuario.telefone" formControlName="telefone"
+              <input [(ngModel)]="usuario.telefone" formControlName="telefone"
               type="text" id="telefone" class="form-control">
             </div>
             <div class="col-md-2">
               <label for="celular" class="control-label">Celular</label>
-              <input (ngModel)="usuario.celular" formControlName="celular"
+              <input [(ngModel)]="usuario.celular" formControlName="celular"
               type="text" id="celular" class="form-control">
             </div>  
           </div>
@@ -52,19 +53,18 @@
           <div class="form-group">
             <div class="col-md-4">
               <label for="email" class="control-label">Email de acesso</label>
-              <input (ngModel)="usuario.email" formControlName="email"
+              <input [(ngModel)]="usuario.emailAcesso" formControlName="email"
               type="text" id="email" class="form-control">
             </div>
             <div class="col-md-4">
               <label for="senha" class="control-label">Senha</label>
-              <input (ngModel)="usuario.senha" formControlName="senha"
+              <input [(ngModel)]="usuario.senha" formControlName="senha"
               type="password" id="senha" class="form-control">
             </div>
             <div class="col-md-4">
               <label for="categoria">Categoria</label>
-              <select (ngModel)="usuario.categoria" formControlName="categoria" id="categoria" class="form-control">
-                <option value="0">Desenvolvimento</option>
-                <option value="1">Infraestrutura</option>
+              <select [(ngModel)]="usuario.categoria" formControlName="categoria" id="categoria" class="form-control">
+                <option [value]="c.id" *ngFor="let c of categorias">{{c.descricao}}</option>
               </select>
             </div>  
           </div>

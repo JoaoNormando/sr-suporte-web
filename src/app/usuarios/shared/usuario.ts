@@ -5,5 +5,5 @@ export class Usuario {
     telefone:string;
     celular:string
     senha:number;// Minimo 5 caracteres
-
+    emailAcesso:string;
 }

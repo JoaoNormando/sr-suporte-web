@@ -3,6 +3,9 @@ import { UsuarioService } from '../shared/usuario-service';
 import { Usuario } from '../shared/usuario';
 
 import { FormBuilder, Validators, FormControlName, FormGroup, FormControl } from '@angular/forms';
+import { CategoriaService } from '../../categorias/shared/categoria-service';
+import { Categoria } from '../../categorias/shared/categoria';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,13 +16,13 @@ import { FormBuilder, Validators, FormControlName, FormGroup, FormControl } from
 export class NovoUsuarioComponent implements OnInit{
 
   private usuario:Usuario;
+  private categorias:Categoria[];
 
   private formNovoUsuario:FormGroup;
   private enviado:boolean = false;
 
-  constructor(private usuarioService:UsuarioService, private formBuilder:FormBuilder) {
+  constructor(private usuarioService:UsuarioService, private categoriaService:CategoriaService, private formBuilder:FormBuilder, private router:Router) {
     this.usuario = new Usuario();
-    this.usuario.nome = "Fulano";
    }
    
   ngOnInit(): void {
@@ -30,14 +33,22 @@ export class NovoUsuarioComponent implements OnInit{
       celular:[''],
       email: new FormControl('', [Validators.required, Validators.email]),
       senha: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      categoria: ['']
+      categoria: new FormControl('', [Validators.required])
     });
+    this.categoriaService.recuperarCategorias().subscribe(temp => this.categorias = temp);
   }
 
    enviarFormulario(){
      this.enviado = true;
      if(this.formNovoUsuario.valid){
-      console.log("Executando o envio do formulário...");
+      this.usuarioService.salvarUsuario(this.usuario).subscribe(
+        resp => {
+          this.router.navigate(['lista-usuario']);
+        },
+        err => {
+          console.log("Ocorreu um erro...");
+        }
+      );
     }
    }
 

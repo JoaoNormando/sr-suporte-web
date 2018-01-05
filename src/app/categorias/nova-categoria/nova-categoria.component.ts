@@ -34,7 +34,7 @@ export class NovaCategoriaComponent implements OnInit {
     if(this.formNovaCategoria.valid){
       const request = this.categoriaService.salvarCategoria(this.categoria).subscribe(
         resp => {
-         this.router.navigate(['novo-usuario']);
+         this.router.navigate(['lista-categoria']);
         },
         err => {
           console.log("Desculpe, ocorreu um erro...");  

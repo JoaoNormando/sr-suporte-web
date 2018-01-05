@@ -11,7 +11,7 @@ export class UsuarioService {
     constructor (private http:HttpClient) { }
 
     public salvarUsuario(usuario:Usuario){
-        this.http.post(this.endereco, usuario);
+        return this.http.post(this.endereco, usuario);
     }
 
     public recuperarUsuarios() : Observable<Usuario[]> {
